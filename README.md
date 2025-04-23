@@ -1,85 +1,55 @@
-﻿# Typescript Solid
-🛒 Projeto: Carrinho de Compras com SOLID e TypeScript
-Este projeto é uma aplicação simples de um carrinho de compras desenvolvida com TypeScript, com foco nos princípios SOLID da programação orientada a objetos. Ele foi criado com o objetivo de reforçar conceitos de design de software limpo, testável e escalável.
+<h1 align="center">🛒 Carrinho de Compras com TypeScript + SOLID</h1>
 
-📚 O que eu aprendi
-Neste projeto, coloquei em prática os 5 princípios do SOLID:
+<p align="center">
+  Projeto simples criado com TypeScript para fixar os princípios do <strong>SOLID</strong> na prática.<br/>
+  Implementa um carrinho de compras funcional com boas práticas de arquitetura de software.
+</p>
 
-1. Single Responsibility Principle (SRP)
-Uma classe deve ter um e apenas um motivo para mudar.
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20with-TypeScript-007acc?style=for-the-badge&logo=typescript" />
+  <img src="https://img.shields.io/github/last-commit/Pedro-Ricardo0/typescriptSolid?style=for-the-badge" />
+</p>
 
-Cada classe ou serviço do projeto possui uma responsabilidade única:
+---
 
-ShoppingCart cuida apenas das operações de carrinho.
+## 🧠 O que eu aprendi
 
-Messaging é responsável pelo envio de mensagens.
+Durante esse projeto, aprendi e apliquei os cinco princípios do SOLID, fundamentais para o desenvolvimento de sistemas desacoplados e de fácil manutenção:
 
-Persistency salva o pedido.
+- Organização e separação de responsabilidades
+- Uso de injeção de dependência para melhorar o acoplamento
+- Criação de interfaces coesas
+- Aplicação de herança correta sem quebre comportamentos
 
-Customer lida com os dados do cliente.
+---
 
-2. Open/Closed Principle (OCP)
-Entidades devem estar abertas para extensão, mas fechadas para modificação.
+## 🧩 Princípios SOLID aplicados
 
-Implementei este princípio através do uso de interfaces como:
+| Princípio | Nome | Aplicado em |
+|----------|------|-------------|
+| S | **Single Responsibility Principle** | `ShoppingCart`, `Order`, `Persistency`, `Messaging` |
+| O | **Open/Closed Principle**         | `Discount` (aberto para extensão, fechado para modificação) |
+| L | **Liskov Substitution Principle** | `Discount` subclasses substituem a base sem alterar comportamento |
+| I | **Interface Segregation Principle** | Separação entre `CustomerOrder`, `IndividualCustomer`, `EnterpriseCustomer` |
+| D | **Dependency Inversion Principle** | `Order` depende de abstrações como `PersistencyProtocol` e `MessagingProtocol` |
 
-Discount e suas subclasses (TenPercentDiscount, FiftyPercentDiscount, etc), permitindo adicionar novos tipos de desconto sem alterar a lógica base.
+---
 
-3. Liskov Substitution Principle (LSP)
-Classes derivadas devem poder ser substituídas por suas classes base sem quebrar a aplicação.
+## 🏗️ Estrutura do projeto
 
-A hierarquia de Discount demonstra isso bem: substituí facilmente um desconto padrão por outro específico sem impactar o funcionamento do carrinho.
-
-4. Interface Segregation Principle (ISP)
-Nenhum cliente deve ser forçado a depender de métodos que não usa.
-
-Utilizei interfaces separadas para clientes:
-
-CustomerOrder, IndividualCustomerProtocol, EnterpriseCustomerProtocol, cada uma contendo apenas os métodos ou dados que realmente fazem sentido para o tipo de cliente.
-
-5. Dependency Inversion Principle (DIP)
-Dependa de abstrações, não de implementações concretas.
-
-As classes recebem interfaces como dependências, por exemplo:
-
-O ShoppingCart recebe Discount, MessagingProtocol, PersistencyProtocol, entre outros — facilitando testes e desacoplamento.
-
-🧩 Outros padrões aplicados
-Singleton: usado para manter instâncias únicas de serviços, como Persistency, garantindo uma única fonte de verdade.
-
-Injeção de dependência: via construtores, favorecendo testabilidade e desacoplamento.
-
-📁 Estrutura do Projeto
-bash
-Copiar
-Editar
-src/
-│
-├── classes/
-│   ├── interfaces/          # Protocolos (contratos) e segregação de interfaces
-│   └── services/            # Implementações concretas
-│
-├── legacy/                 # Código legado com acoplamento, para comparação
-├── srp/                    # Versão inicial focada no SRP
-└── main.ts                 # Execução principal e montagem dos serviços
-🚀 Tecnologias
-TypeScript
-
-Node.js (execução local)
-
-Princípios SOLID
-
-✅ Como executar
-bash
-Copiar
-Editar
-# Instale as dependências
-npm install
-
-# Compile o projeto
-npx tsc
-
-# Execute
-node dist/main.js
-💡 Conclusão
-Esse projeto foi essencial para entender como aplicar os princípios do SOLID na prática com TypeScript. Ele me mostrou como organizar melhor o código, evitar acoplamento e escrever software de forma mais limpa, flexível e testável.
+```bash
+📁 src
+ ┣ 📁 classes
+ ┃ ┣ 📁 interfaces
+ ┃ ┃ ┣ 📄 customer-protocol.ts
+ ┃ ┃ ┣ 📄 cart-item.ts
+ ┃ ┃ ┗ 📄 ...
+ ┃ ┣ 📁 services
+ ┃ ┃ ┣ 📄 messaging.ts
+ ┃ ┃ ┣ 📄 persistency.ts
+ ┃ ┃ ┗ 📄 ...
+ ┃ ┣ 📄 product.ts
+ ┃ ┣ 📄 customer.ts
+ ┃ ┗ 📄 ...
+┣ 📁 srp (exercício separado)
+┣ 📁 legacy (versão antiga sem SRP)
