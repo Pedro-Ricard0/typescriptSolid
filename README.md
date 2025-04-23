@@ -54,6 +54,10 @@ Durante esse projeto, aprendi e apliquei os cinco princípios do SOLID, fundamen
 ┣ 📁 srp (exercício separado)
 ┣ 📁 legacy (versão antiga sem SRP)
 
+```
+
+🚀 Como rodar o projeto
+``` bash
 # 1. Clone o repositório
 git clone https://github.com/Pedro-Ricardo0/typescriptSolid.git
 
@@ -65,3 +69,4 @@ npm install
 
 # 4. Rode o projeto
 npm start
+```
