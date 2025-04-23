@@ -53,3 +53,15 @@ Durante esse projeto, aprendi e apliquei os cinco princípios do SOLID, fundamen
  ┃ ┗ 📄 ...
 ┣ 📁 srp (exercício separado)
 ┣ 📁 legacy (versão antiga sem SRP)
+
+# 1. Clone o repositório
+git clone https://github.com/Pedro-Ricardo0/typescriptSolid.git
+
+# 2. Acesse a pasta
+cd typescriptSolid
+
+# 3. Instale as dependências
+npm install
+
+# 4. Rode o projeto
+npm start
