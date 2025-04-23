@@ -56,7 +56,12 @@ Durante esse projeto, aprendi e apliquei os cinco princípios do SOLID, fundamen
 
 ```
 
+---
+
+
 🚀 Como rodar o projeto
+
+
 ``` bash
 # 1. Clone o repositório
 git clone https://github.com/Pedro-Ricardo0/typescriptSolid.git
